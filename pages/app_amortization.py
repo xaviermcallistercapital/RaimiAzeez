@@ -85,19 +85,19 @@ def layout():
                         dbc.Row([
                             dbc.Col([
                                 principal,
-                            ], xs=2, sm=2, md=2, lg=2, xl=2, className='p-3 border align-content-end', align='center'),
+                            ], xs=2, sm=2, md=2, lg=2, xl=2, className='border align-items-end'),
                             dbc.Col([
                                 interestrate,
-                            ], xs=2, sm=2, md=2, lg=2, xl=2, className='p-3 align-content-end', align='center'),
+                            ], xs=2, sm=2, md=2, lg=2, xl=2, className='align-content-end'),
                             dbc.Col([
                                 loanyears,
-                            ], xs=2, sm=2, md=2, lg=2, xl=2, className='p-3 align-self-end mr-3', align='center'),
+                            ], xs=2, sm=2, md=2, lg=2, xl=2, className='align-self-end mr-3'),
                             dbc.Col([
                                 loan_start_date,
-                            ], xs=2, sm=2, md=2, lg=2, xl=2, className='p-3 align-self-end mr-3', align='center'),
+                            ], xs=2, sm=2, md=2, lg=2, xl=2, className='align-items-end'),
                             dbc.Col([
                                 run_button,
-                            ], xs=2, sm=2, md=2, lg=2, xl=2, className='p-3', align='center'),
+                            ], xs=2, sm=2, md=2, lg=2, xl=2, className='align-items-end'),
 
                         ],  className='align-items-end'),#justify='center',
 
