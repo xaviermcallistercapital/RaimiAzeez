@@ -142,7 +142,7 @@ def layout():
                                 md=2,
                             ),
                         ],
-                        align="center",
+                        className='align-items-end', justify='center',
                     ),
                     html.Br(),
                     dbc.Row([

@@ -132,28 +132,28 @@ def layout():
                         dbc.Row([
                             dbc.Col([
                                     symbol_dropdown,
-                                    ], xs=2, sm=2, md=2, lg=2, xl=2, className='p-3', align='center'),
+                                    ], xs=2, sm=2, md=2, lg=2, xl=2, className='p-3'),
                                     dbc.Col([
                                         timeframe_dropdown,
-                                    ], xs=2, sm=2, md=2, lg=2, xl=2, className='p-3', align='center'),
+                                    ], xs=2, sm=2, md=2, lg=2, xl=2, className='p-3'),
 
                                     dbc.Col([
                                         log_check,
-                                    ], xs=2, sm=2, md=2, lg=2, xl=2, className='p-3', align='center'),
+                                    ], xs=2, sm=2, md=2, lg=2, xl=2, className='p-3'),
 
                                     dbc.Col([
                                         diff_check,
-                                    ], xs=2, sm=2, md=2, lg=2, xl=2, className='p-3', align='center'),
+                                    ], xs=2, sm=2, md=2, lg=2, xl=2, className='p-3'),
 
                                     dbc.Col([
                                         split,
-                                    ], xs=2, sm=2, md=2, lg=2, xl=2, className='p-3', align='center'),
+                                    ], xs=2, sm=2, md=2, lg=2, xl=2, className='p-3'),
                             
                                     dbc.Col([
                                         run_button,
-                                    ], xs=2, sm=2, md=2, lg=2, xl=2, className='p-3', align='center'),
+                                    ], xs=2, sm=2, md=2, lg=2, xl=2, className='p-3'),
                             
-                                ], justify='center'),
+                                ], className='align-items-end', justify='center'),
                         
                         html.Br(),
                         html.Hr(),

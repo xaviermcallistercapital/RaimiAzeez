@@ -69,7 +69,7 @@ def layout():
                         fast_ema_input,
                     ], xs=2, sm=2, md=2, lg=2, xl=2, className='p-3', align='center'),
 
-                ], justify='center'),
+                ], className='align-items-end', justify='center'),
                 html.Br(),
                 dbc.Row([
                     dbc.Col([

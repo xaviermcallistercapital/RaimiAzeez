@@ -101,12 +101,12 @@ def layout():
                                 ],
                                 md=2,
                             ),
-                    html.Hr(),
-                    html.Br(),
-                    dbc.Row(
-                        [tabs]
-                        )],
-                        className="mt-4",
+                            html.Hr(),
+                            html.Br(),
+                            dbc.Row(
+                                [tabs]
+                                )],
+                        className='align-items-end', justify='center',
                     )
                 ], xs=8, sm=8, md=10, lg=10, xl=10, xxl=10)
         ]
