@@ -1,5 +1,4 @@
 import dash
-from jupyter_dash import JupyterDash
 from dash import Dash, html, dcc, dash_table, callback
 import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output, State
