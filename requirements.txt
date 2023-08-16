@@ -23,6 +23,7 @@ dash-table==5.0.0
 exceptiongroup==1.1.2
 Flask==2.2.5
 fonttools==4.42.0
+gunicorn
 h11==0.14.0
 idna==3.4
 importlib-metadata==6.8.0
