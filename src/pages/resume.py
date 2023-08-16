@@ -21,20 +21,26 @@ layout = html.Div([
     dbc.Row([
 
         #Biodata
+       # dbc.Col([
+        dcc.Markdown('# Raimi Azeez Babatunde', style={'textAlign':'center'}),
+        dcc.Markdown('#### Data Scientist || Python Algo dev', style={'textAlign':'center'}),
+        html.Hr(),
+        # dcc.Markdown('#### Data Scientist',
+        #              style={'textAlign':'center'})
+
         dbc.Col([
-            dcc.Markdown('# Raimi Azeez Babatunde', style={'textAlign':'center'}),
-            dcc.Markdown('#### Data Scientist', style={'textAlign':'center'}),
-            html.Hr(),
-            # dcc.Markdown('#### Data Scientist',
-            #              style={'textAlign':'center'})
-            dcc.Markdown(" I am a Data Scientist with vast and efficient knowledge in using \n"
-                            "python, data analysis, visualization,  and machine learning models & techniques to deliver "
-                         "insights and implement action-oriented solutions to business problems. My goal is to work in "
-                         "an environment where my potential and capabilities will be developed and utilized to attain "
-                         " the organization's goals and make a real-life impact.",
-                         #' \n',
-                         style={'textAlign': 'left', 'white-space': 'pre'},
-                         className='flex-wrap'),
+            dcc.Markdown(" I am a Data Scientist with vast and efficient knowledge in using"
+                   "python, data analysis, visualization,  and machine learning models & techniques to deliver "
+                   "insights and implement action-oriented solutions to business problems. My goal is to work in "
+                   "an environment where my potential and capabilities will be developed and utilized to attain "
+                   " the organization's goals and make a real-life impact.",
+                   # ' \n',
+                   style={'textAlign': 'left', 'white-space': 'pre-wrap'},
+                   # className='flex-column'
+                   ),
+            ], width={"size": 9, "offset": 1}, className='flex-column',
+                style={'textAlign': 'left'}),
+
             html.Hr(),
             #email and #phone
             dbc.Row([
@@ -79,7 +85,7 @@ layout = html.Div([
                 ], width={"size": 2}, className='d-inline-flex'),
             ], justify="center", style={'align':'center'}),
 
-        ], width={"size": 8}, className= 'p-3'), #, "offset": 4
+        #], width={"size": 8}, className= 'flex-column p-3'), #, "offset": 4
         ], justify="center"),
 
     #Skills
