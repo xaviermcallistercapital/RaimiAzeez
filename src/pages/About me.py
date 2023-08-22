@@ -22,10 +22,10 @@ def layout():
         # put image here
         dbc.Col([
             picture_card
-        ], width={"size": 3}),
+        ], width={"size": 3}, className='pt-5'),
 
         dbc.Col([
-            dcc.Markdown('### Raimi Azeez Babatunde', style={'textAlign': 'center'}),
+            html.H1('Raimi Azeez Babatunde', style={'textAlign': 'center'}, className='p4'),
             html.Hr(),
             html.P("Hi, I'm glad you found me.\n \n"
                  "Welcome to my world of data-driven wonders! I'm Azeez, your go-to wizard for turning raw data "
@@ -43,5 +43,23 @@ def layout():
                  "Ready to embark on a data-driven adventure? Let's innovate together!",
                    style={'textAlign': 'left'}),
 
+            html.P("With my diverse skill set, I am suitable and well-equipped to excel in a variety of roles:\n",
+                   style={'textAlign': 'left'}),
+
+            dcc.Markdown('''
+                * Data Scientist
+                * Quantitative Analyst (Quant)
+                * Financial Analyst (with Data Emphasis)
+                * Data Analyst
+                * Data Engineer
+                * Business Intelligence Analyst
+                * Machine Learning Engineer
+                * Natural Language Processing (NLP) Specialist
+                * Data Visualization Specialist
+                * Technical Lead / Manager
+                * Research Scientist (NLP)
+                * Business Strategy Analyst
+                * Data Operations Manager
+            ''', style={'textAlign': 'left'})
         ], width={'size':6}, className='flex-wrap')
 ], justify='center', className='p-3')

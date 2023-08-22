@@ -23,45 +23,30 @@ layout = html.Div([
         #Biodata
        # dbc.Col([
         dcc.Markdown('# Raimi Azeez Babatunde', style={'textAlign':'center'}),
-        dcc.Markdown('#### Data Scientist || Python Algo dev', style={'textAlign':'center'}),
+        dcc.Markdown('#### Data Scientist', style={'textAlign':'center'}),
         html.Hr(),
-        # dcc.Markdown('#### Data Scientist',
-        #              style={'textAlign':'center'})
 
-        dbc.Col([
-            dcc.Markdown(" I am a Data Scientist with vast and efficient knowledge in using"
-                   "python, data analysis, visualization,  and machine learning models & techniques to deliver "
-                   "insights and implement action-oriented solutions to business problems. My goal is to work in "
-                   "an environment where my potential and capabilities will be developed and utilized to attain "
-                   " the organization's goals and make a real-life impact.",
-                   # ' \n',
-                   style={'textAlign': 'left', 'white-space': 'pre-wrap'},
-                   # className='flex-column'
-                   ),
-            ], width={"size": 9, "offset": 1}, className='flex-column',
-                style={'textAlign': 'left'}),
-
-            html.Hr(),
-            #email and #phone
-            dbc.Row([
+        dbc.Row([
+            dbc.Col([
                 dbc.Col([
                     html.I(className="fa-solid fa-envelope"),  # <i class="fa-solid fa-envelope"></i>
                     dcc.Markdown('###### &ensp; raimiazeez26@gmail.com',
-                        style={'textAlign':'center'}),
-                ], width={"size": 4}, className= 'd-inline-flex'),
+                                 style={'textAlign': 'center'}),
+                ], width={"size": 4}, className='d-inline-flex'),
 
                 dbc.Col([
                     html.I(className="fa-solid fa-phone"),  # <i class="fa-solid fa-envelope"></i>
                     dcc.Markdown('###### &ensp; +2348025831825',
-                        style={'textAlign': 'center'}),
-                ], width={"size": 3}, className= 'd-inline-flex'),
+                                 style={'textAlign': 'center'}),
+                ], width={"size": 3}, className='d-inline-flex'),
+            ], width='9', style={'align': 'center'})
+        ], justify="center", className='pt-1 pb-1'),
 
-                ], justify="center", className= 'pt-1'),
-
-            # social media
-            dbc.Row([
+        # social media
+        dbc.Row([
+            dbc.Col([
                 dbc.Col([
-                    html.I(className="fa-brands fa-github p-1"), #<i class="fa-brands fa-github"></i>
+                    html.I(className="fa-brands fa-github p-1"),  # <i class="fa-brands fa-github"></i>
                     html.A('GitHub  ', href='https://github.com/raimiazeez26', target="_blank",
                            style={'textAlign': 'center'})
                 ], width={"size": 2}, className='d-inline-flex'),
@@ -69,7 +54,7 @@ layout = html.Div([
                 dbc.Col([
                     html.I(className="fa-brands fa-linkedin p-1"),
                     html.A('LinkedIn  ', href='https://www.linkedin.com/in/raimi-azeez/', target="_blank",
-                                style={'textAlign':'left'})
+                           style={'textAlign': 'left'})
                 ], width={"size": 2}, className='d-inline-flex'),
 
                 dbc.Col([
@@ -79,14 +64,32 @@ layout = html.Div([
                 ], width={"size": 2}, className='d-inline-flex'),
 
                 dbc.Col([
-                    html.I(className="fa-brands fa-kaggle p-1"), #<i class="fa-brands fa-kaggle"></i>
+                    html.I(className="fa-brands fa-kaggle p-1"),  # <i class="fa-brands fa-kaggle"></i>
                     html.A('Kaggle  ', href='https://www.kaggle.com/raimiazeezbabatunde', target="_blank",
                            style={'textAlign': 'left'})
                 ], width={"size": 2}, className='d-inline-flex'),
-            ], justify="center", style={'align':'center'}),
+            ], width='9', style={'align': 'center'})
+        ], justify="center", style={'align': 'center'}),
 
-        #], width={"size": 8}, className= 'flex-column p-3'), #, "offset": 4
-        ], justify="center"),
+        # ], width={"size": 8}, className= 'flex-column p-3'), #, "offset": 4
+    ], justify="center", style={'align': 'center'}),
+
+    html.Hr(),
+    dbc.Row([
+        dbc.Col([
+            dcc.Markdown(" I am a Data Scientist with vast and efficient knowledge in using "
+                   "python, data analysis, visualization,  and machine learning models & techniques to deliver "
+                   "insights and implement action-oriented solutions to business problems. My goal is to work in "
+                   "an environment where my potential and capabilities will be developed and utilized to attain "
+                   " the organization's goals and make a real-life impact.",
+                   # ' \n',
+                   style={'textAlign': 'left', 'white-space': 'pre-wrap'},
+                   # className='flex-column'
+                   ),
+            ], width={"size": 9, "offset": 1}, className='flex-column',
+                style={'textAlign': 'center'}),
+
+    ], justify="center", style={'align': 'center'}),
 
     #Skills
     html.Hr(),
@@ -97,23 +100,28 @@ layout = html.Div([
             dcc.Markdown('''
         * Python Programming
         * Machine Learning
-        * Data Exploration & Analysis
+        * Natural Language Processing (NLP)
+        * Web Scraping
+        * Statistical Analysis
         ''')
         ], width={"size": 3, "offset": 1},
             style={'textAlign': 'left'}),
         dbc.Col([
             dcc.Markdown('''
+        * Time Series Analysis
+        * Data Exploration & Analysis
+        * Data Visualization
         * Microsoft PowerBI & Excel
         * [Tableau](https://public.tableau.com/app/profile/raimi.azeez.babatunde)
-        * SQL & DBMS
         ''')
         ], width=3, style={'textAlign': 'left'}),
         dbc.Col([
             dcc.Markdown('''
+        * API Integration
+        * SQL & DBMS
         * AWS & Azure Data Studio
         * Leadership
         * Business Strategy
-        
         ''')
         ], width=3, style={'textAlign': 'left'})
     ], justify='center'),
@@ -128,7 +136,7 @@ layout = html.Div([
         #company, location
         dbc.Row([
             dbc.Col([
-                dcc.Markdown('#### Xavier Mcallister Holdings',
+                dcc.Markdown('#### Xavier Mcallister Capital',
                              style={'textAlign': 'left'}),
             ],width = '4'),
 
@@ -157,11 +165,15 @@ layout = html.Div([
             dbc.Col([
                 html.Ul([
                     html.Li(
-                        'I lead the data analytics team in identifying business needs & planning project execution'
-                        'to ensure informed and data-driven decision making'),
-                    html.Li('I design and develop data management processes and products/apps.'),
+                        'I lead data analytics teams, coordinating project execution, and aligning objectives with '
+                        'business goals.'),
+                    html.Li('I developed and implemented machine learning models to predict outcomes and '
+                            'optimize processes, achieving improved accuracy and efficiency.'),
                     html.Li('I convert company strategies into automated scripts using historical & technical indicator'
                             ' data with python programming.'),
+                    html.Li('I build Artificial Intelligent solutions/products using Large Language Models (LLM)'),
+                    html.Li('I actively pursued professional development, earning certifications in areas such as '
+                            'Business Intelligence & Data Analytics and Machine Learning..'),
                 ], style={'textAlign': 'left'})
             ], width='8')
         ], justify='center'),
@@ -173,7 +185,7 @@ layout = html.Div([
         # company, location
         dbc.Row([
             dbc.Col([
-                dcc.Markdown('#### Xavier Mcallister Holdings',
+                dcc.Markdown('#### Xavier Mcallister Capital',
                              style={'textAlign': 'left'}),
             ], width='4'),
 
@@ -201,9 +213,13 @@ layout = html.Div([
             dbc.Col([
                 html.Ul([
                     html.Li(
-                        'Perform daily trades on provided accounts to build a profitable trading portfolio.'),
-                    html.Li('I performed technical & analysis of the financial market.'),
-                    html.Li('I analyzed and presently monthly report of trade activities.'),
+                        'I designed visually appealing and informative dashboards using tools like Tableau and PowerBI '
+                        'to communicate insights effectively to non-technical stakeholders.'),
+                    html.Li('I extracted, cleaned, and processed extensive datasets from diverse sources, including user'
+                            ' interactions and financial transactions.'),
+                    html.Li('I Designed visually appealing and informative dashboards using tools like Tableau and '
+                            'PowerBI to communicate insights effectively to non-technical stakeholders.'),
+                    html.Li('I perform daily trades on provided accounts to build a profitable trading portfolio.'),
                 ], style={'textAlign': 'left'})
             ], width='8'),
         ], justify='center'),
@@ -496,6 +512,16 @@ layout = html.Div([
     html.Hr(),
     dbc.Row([
         interests_buttons,
+    ], justify='center', className='pt-3'),
+
+    # Community
+    html.Hr(),
+    dcc.Markdown('### Community', style={'textAlign': 'center'}),
+    html.Hr(),
+    dbc.Row([
+        dcc.Markdown('###### [TheRoom](https://www.theroom.com/) - Member',
+                     style={'white-space': 'pre'},
+                     className='ms-3'),
     ], justify='center', className='pt-3'),
 
 ])
