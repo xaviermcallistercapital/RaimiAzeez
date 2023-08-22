@@ -12,6 +12,7 @@ def get_symbol_names():
     return symbol_names
 
 TIMEFRAMES = [ 'M15','H1', 'D1']
+TIMEFRAMES_live = ['M1', 'M5', 'M15', 'M30', 'M45','H1', 'H4', 'D1', 'W1', 'MN1']
 TIMEFRAME_DICT = {
     'MN1' : Interval.in_monthly,
     'W1' : Interval.in_weekly,

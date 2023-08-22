@@ -111,7 +111,7 @@ def layout():
                 ], xs=8, sm=8, md=10, lg=10, xl=10, xxl=10)
         ]
     )
-    ], fluid=True, class_name='g-0 p-4')
+    ], fluid=True, class_name='g-0') # p-4
 
 
 @callback(

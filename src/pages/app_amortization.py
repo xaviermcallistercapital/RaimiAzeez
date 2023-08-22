@@ -125,7 +125,7 @@ def layout():
             )
         ]
     )
-], fluid=True, class_name='g-0 p-4',
+], fluid=True, class_name='g-0', # p-4
     style={"height": "99vh", 'background-size': '100%'})
 
 @callback(

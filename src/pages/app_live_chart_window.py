@@ -3,7 +3,7 @@ import dash_bootstrap_components as dbc
 from dash import html, dcc, callback
 from dash.dependencies import Input, Output, State
 
-from .def_symbols_tv import get_symbol_names, TIMEFRAMES, TIMEFRAME_DICT
+from .def_symbols_tv import get_symbol_names, TIMEFRAMES_live, TIMEFRAME_DICT
 from .side_bar import sidebar
 from .vhf_chart_tv_white import price_chart
 
@@ -22,8 +22,8 @@ timeframe_dropdown = html.Div([
     html.P('Timeframe:'),
     dcc.Dropdown(
         id='timeframe-dropdown',
-        options=[{'label': timeframe, 'value': timeframe} for timeframe in TIMEFRAMES],
-        value='M5',
+        options=[{'label': timeframe, 'value': timeframe} for timeframe in TIMEFRAMES_live],
+        value='M1',
     )
 ])
 
@@ -83,7 +83,7 @@ def layout():
 
         dcc.Interval(id='update', interval=2000),
 
-    ], fluid=True, class_name='g-0 p-4',
+    ], fluid=True, class_name='g-0',  #p-4
         style={"height": "99vh", 'background-size': '100%'})
 
 @callback(

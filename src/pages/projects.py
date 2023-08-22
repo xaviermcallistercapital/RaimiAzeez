@@ -16,7 +16,8 @@ def layout():
 
             dbc.Col(
                 [
-                    html.H3('Welcome to my Project Page', style={'textAlign':'center'}, className='p4'),
+                    html.H2('Welcome to my Project Page', style={'textAlign':'center'}, className='p4'),
+                    html.H5('This Page is Actively Updated', style={'textAlign': 'center'}, className='p4 text-warning'),
                     html.P('This Project App was created using Dash. All projects contained within this project app '
                            'was completed using python. Feel free to check my github for source codes or send an email '
                            'to request. '
@@ -25,12 +26,11 @@ def layout():
                            , style={'textAlign': 'left'}),
 
                     dcc.Markdown('''
-                            Other
+                            Other Project Sources
+                            * [Github](https://github.com/raimiazeez26)
                             * [Tableau](https://public.tableau.com/app/profile/raimi.azeez.babatunde)
-                            * Microsoft PowerBI
-                            * Microsoft Excel
+                            * [Kaggle](https://www.kaggle.com/raimiazeezbabatunde)
                             ''', style={'textAlign': 'left'}),
-
 
                     html.Hr(),
                     #dcc.Graph(figure=fig, id='line_chart'),

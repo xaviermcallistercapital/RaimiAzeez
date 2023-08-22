@@ -2,10 +2,10 @@ import dash
 from dash import Dash, html
 from dash_bootstrap_templates import ThemeSwitchAIO, ThemeChangerAIO, template_from_url
 import dash_bootstrap_components as dbc
-import dash_auth
+#import dash_auth
 
 #theme switch
-theme_switch = ThemeSwitchAIO(aio_id="theme", themes=[dbc.themes.CYBORG, dbc.themes.MORPH])
+theme_switch = ThemeSwitchAIO(aio_id="theme", themes=[dbc.themes.SLATE, dbc.themes.MORPH]) #CYBORG
 
 font_awesome = 'https://use.fontawesome.com/releases/v6.4.0/css/all.css'
     #'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/font-awesome.min.css'
@@ -15,14 +15,14 @@ app = Dash(__name__, use_pages=True, external_stylesheets=[dbc.themes.SLATE, fon
            )
 
 server = app.server
-auth = dash_auth.BasicAuth(
-    app,
-    {
-        'raimiazeez': 'raimiresume',
-        'myprojects': 'myprojects'
-
-    }
-)
+# auth = dash_auth.BasicAuth(
+#     app,
+#     {
+#         'raimiazeez': 'raimiresume',
+#         'myprojects': 'myprojects'
+#
+#     }
+# )
 
 header = dbc.Navbar(
     dbc.Container(
