@@ -10,12 +10,6 @@ from arch import arch_model
 from scipy import stats
 from .def_symbols_tv import TIMEFRAME_DICT
 
-from tvDatafeed import TvDatafeed, Interval
-
-username = 'contactus@xaviermcallister.com'
-password = 'xaviermcallister2019!!'
-tv = TvDatafeed(username=username, password=password)
-
 def fig_to_uri(in_fig, close_all=True, **save_args):
     # type: (plt.Figure) -> str
     """
@@ -34,29 +28,14 @@ def fig_to_uri(in_fig, close_all=True, **save_args):
     return "data:image/png;base64,{}".format(encoded)
 
 def get_data(symbol, timeframe):
-    df = tv.get_hist(symbol=symbol, exchange='OANDA', interval=timeframe, n_bars=400)  # Interval.in_1_hour
-
-    # create DataFrame out of the obtained data
-    df = pd.DataFrame(df)
-    # convert time in seconds into the datetime format
-    df['time'] = pd.to_datetime(df.index, unit='s')
-    df.index = df.time.values
-    df = df.drop(["time", "symbol"], axis=1)  # "open", "high", "low"
-    df = df.rename(columns={"open": "Open",
-                            "close": "Close",
-                            "high": "High",
-                            "low": "Low",
-                            "volume": "Volume"})
-    df = df.dropna()
-    df = df.reset_index()
-
+    df = pd.read_csv('forex_data.csv', index_col = [0])
+    df = df.loc[(df['Symbol'] == symbol) & (df['TimeFrame'] == timeframe)]
     return df
 
 def chart_data(symbol, timeframe, split=100, log = True, diff = True):
 
-    tf = TIMEFRAME_DICT[timeframe]
-    df = get_data(symbol, tf)
-
+    #tf = TIMEFRAME_DICT[timeframe]
+    df = get_data(symbol, timeframe)
     # Extract the 'Close' price
     data = df[['Close']]
     
@@ -106,7 +85,6 @@ def model_selection(train_data, p, q, dist = 'Normal'):
 
 
 def distribution(train_data, symbol, timeframe):
-
 
     # Histogram Histogram of Google Stock Returns
     fig, ax = plt.subplots(1,1, figsize=(10, 6))

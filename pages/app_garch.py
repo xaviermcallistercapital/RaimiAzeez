@@ -169,7 +169,7 @@ def layout():
                 className='p-3'
             )
         ]
-        )], fluid=True, class_name='g-0 p-4')
+        )], fluid=True, class_name='g-0') #p-4
 
 @callback(
     Output('train_storeg', 'data'),
@@ -222,6 +222,7 @@ def Run_model(tab, train_data, test_data, symbol, timeframe, split, p, q, dist, 
 
     # if "run-button" == ctx.triggered_id:
     train_data = pd.DataFrame(train_data)
+    print(f'test_data - {test_data}')
     test_data = pd.DataFrame(test_data)
     # print(train_data)
     model, summary = model_selection(train_data, p, q, dist='Normal')

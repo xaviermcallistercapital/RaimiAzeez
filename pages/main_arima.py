@@ -14,36 +14,15 @@ from statsmodels.tsa.arima.model import ARIMA
 from pmdarima import auto_arima
 from .def_symbols_tv import TIMEFRAME_DICT
 
-from tvDatafeed import TvDatafeed, Interval
-
-
-username = 'contactus@xaviermcallister.com'
-password = 'xaviermcallister2019!!'
-tv = TvDatafeed(username=username, password=password)
-
 def get_data(symbol, timeframe):
-    df = tv.get_hist(symbol=symbol, exchange='OANDA', interval=timeframe, n_bars=500)  # Interval.in_1_hour
-
-    # create DataFrame out of the obtained data
-    df = pd.DataFrame(df)
-    # convert time in seconds into the datetime format
-    df['time'] = pd.to_datetime(df.index, unit='s')
-    df.index = df.time.values
-    df = df.drop(["time", "symbol"], axis=1)  # "open", "high", "low"
-    df = df.rename(columns={"open": "Open",
-                            "close": "Close",
-                            "high": "High",
-                            "low": "Low",
-                            "volume": "Volume"})
-    df = df.dropna()
-    df = df.reset_index()
-
+    df = pd.read_csv('forex_data.csv', index_col = [0])
+    df = df.loc[(df['Symbol'] == symbol) & (df['TimeFrame'] == timeframe)]
     return df
 
 def chart_data(symbol, timeframe, split=100, log = False, diff = False):
 
-    tf = TIMEFRAME_DICT[timeframe]
-    df = get_data(symbol, tf)
+    #tf = TIMEFRAME_DICT[timeframe]
+    df = get_data(symbol, timeframe)
 
     # Extract the 'Close' price
     data = df[['Close']]
