@@ -3,9 +3,9 @@ import dash_bootstrap_components as dbc
 from dash import html, dcc, callback
 from dash.dependencies import Input, Output, State
 
-from .def_symbols_tv import get_symbol_names, TIMEFRAMES_live, TIMEFRAME_DICT
-from .side_bar import sidebar
-from .vhf_chart_tv_white import price_chart
+from pages.def_symbols_tv import get_symbol_names, TIMEFRAMES_live, TIMEFRAME_DICT
+from pages.side_bar import sidebar
+from pages import price_chart
 
 dash.register_page(__name__,  order=3, name='Live Chart')
 
