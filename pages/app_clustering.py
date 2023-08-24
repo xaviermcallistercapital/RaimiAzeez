@@ -122,6 +122,7 @@ def layout():
     Input('dataset', 'value'),
     Input('feature-selection', 'value'),
     Input('k-value', 'value'),
+    prevent_initial_call=True
 
 )
 def classifier(tab, dataset, pca, k):

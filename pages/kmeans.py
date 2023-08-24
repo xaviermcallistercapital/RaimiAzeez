@@ -178,7 +178,7 @@ def build_model(cons_data, optimal_k, pca = False):
         #Group data Cluster averages
         data_done = data.copy()
         data_done['label'] = cons_data['label']
-        data_avg = data_done.groupby(['label'], as_index=True).mean()
+        data_avg = data_done.groupby(['label'], as_index=True).mean(numeric_only=True)
         data_avg = data_avg.drop("CustomerID", axis = 1)
         melted = data_avg.reset_index().melt(id_vars ="label")
 

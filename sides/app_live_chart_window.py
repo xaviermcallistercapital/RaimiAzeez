@@ -7,7 +7,7 @@ from pages.def_symbols_tv import get_symbol_names, TIMEFRAMES_live, TIMEFRAME_DI
 from pages.side_bar import sidebar
 from pages import price_chart
 
-dash.register_page(__name__,  order=3, name='Live Chart')
+dash.register_page(__name__,  order=3, name='Live Chart') #3 is now used
 
 symbol_dropdown = html.Div([
     html.P('Symbol:'),

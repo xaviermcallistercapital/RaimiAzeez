@@ -10,6 +10,7 @@ theme_switch = ThemeSwitchAIO(aio_id="theme", themes=[dbc.themes.SLATE, dbc.them
 font_awesome = 'https://use.fontawesome.com/releases/v6.4.0/css/all.css'
     #'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/font-awesome.min.css'
 app = Dash(__name__, use_pages=True, external_stylesheets=[dbc.themes.SLATE, font_awesome], #DARKLY
+           suppress_callback_exceptions=True, prevent_initial_callbacks=True,
            meta_tags=[{'name': 'viewport',
                        'content': 'width=device-width, initial-scale=1.0'}]
            )
