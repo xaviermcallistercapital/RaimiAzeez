@@ -133,7 +133,6 @@ def build_model(cons_data, optimal_k, pca = False):
 
         for clust in range(1,10):
             kmeans = KMeans(n_clusters = clust, init = "k-means++")#n_jobs = -1, , init = "k-means++"
-            print(f'136 cons_data: {cons_data}')
             kmeans.fit(cons_data)
             sse.append(kmeans.inertia_)
 
