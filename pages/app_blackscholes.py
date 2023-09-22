@@ -10,7 +10,7 @@ from scipy.stats import norm
 from .BlackScholes import BS
 from .side_bar import sidebar
 
-dash.register_page(__name__, order=8, name='BlackScholes')
+dash.register_page(__name__, order=8, name='OPTION PRICING - BLACK-SCHOLES MODEL')
 
 spot_price = html.Div([
     html.P('Spot Price'),
@@ -64,8 +64,15 @@ def layout():
                                 style={'text-align': 'center'}
                                 ),
                         html.P(
-                            'This is a simple FOREX signal app which pulls signals of FOREX pairs from TradingView. '
-                            'Select a timeframe, Click Fetch and have a look at your chart! '
+                            'The Black-Scholes model, developed by economists Fischer Black, Myron Scholes, and '
+                            'Robert Merton in the early 1970s, is a fundamental framework for valuing financial options.'
+                            ' This model revolutionized the field of finance by providing a mathematical formula to '
+                            'estimate the fair market price of European-style options. It takes into account factors '
+                            'such as the current stock price, strike price, time to maturity, volatility of the '
+                            'underlying asset, and the risk-free interest rate to calculate the options theoretical '
+                            'value. The Black-Scholes model has become a cornerstone of modern finance, enabling '
+                            'investors and financial institutions to make informed decisions about options trading, '
+                            'risk management, and portfolio optimization.'
                             , style={'textAlign': 'left'}),
                     ], style={'align': 'center'}),  # , className='border'),
 
