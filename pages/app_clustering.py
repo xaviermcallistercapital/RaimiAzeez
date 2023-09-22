@@ -3,6 +3,7 @@ import dash
 from dash import Dash, html, dcc, ctx, callback
 import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output, State
+from dash.exceptions import PreventUpdate
 import dash_loading_spinners as dls
 
 from .side_bar import sidebar
@@ -51,18 +52,18 @@ def layout():
             dbc.Col(
                 [
                     html.H1("K-Means Clustering"),
-                    html.P('ARIMA is a Time series forecasting model which......'
-                           'Time series forecasting model which......'
-                           'Time series forecasting model which......'
+
+                    html.P('K-Means Clustering is a machine learning algorithm that partitions a dataset into distinct '
+                           'groups, or clusters, based on similarity among data points. It aims to segregate data points'
+                           ' into clusters where each point within a cluster is more similar to one another than to '
+                           'points in other clusters.'
                            , style={'textAlign': 'left'}),
 
-                    dcc.Markdown('''
-                                   What happened in Africa? Why was the spread so limited compared to other parts of the world?
-                                   * Inaccurate/inconsistent data reporting?'
-                                   * Early herd Immunity?'
-                                   * Natural resistance to the virus?
-                                   ''', style={'textAlign': 'left'}),
-
+                    html.P('The project employs the Elbow Method to seamlessly determine optimal cluster counts. '
+                           'Adding further depth, users exercise control over PCA for dimensionality reduction. '
+                           'Whether opting for PCA or selecting cluster numbers, this project highlights the art of '
+                           'customer insights through interactive data exploration.'
+                           , style={'textAlign': 'left'}),
                     html.Hr(),
                     # dcc.Interval(
                     # id="interval", interval=1000, n_intervals=0),
@@ -101,6 +102,11 @@ def layout():
                                 ],
                                 md=2,
                             ),
+
+                            dbc.Col([
+                                dbc.Button("Run Model", id="run-model-btn", n_clicks=0, className="me-2"),
+                            ], md=2),
+
                             html.Hr(),
                             html.Br(),
                             dbc.Row(
@@ -122,98 +128,97 @@ def layout():
     Input('dataset', 'value'),
     Input('feature-selection', 'value'),
     Input('k-value', 'value'),
+    Input('run-model-btn', 'n_clicks'),
     prevent_initial_call=True
-
 )
-def classifier(tab, dataset, pca, k):
-    if dataset == 'df':
-        if pca:
+def classifier(tab, dataset, pca, k, n_click):
+    if n_click:
+        if dataset == 'df':
+            if pca:
+                elbow_fig_pca, sil_pca, fig_pca, clust_fig_pca = build_model(df, optimal_k=k, pca=True)
 
-            elbow_fig_pca, sil_pca, fig_pca, clust_fig_pca = build_model(df, optimal_k=k, pca=True)
+                if tab == "cluster":
+                    graph = dcc.Graph(figure=fig_pca)
 
-            if tab == "cluster":
-                graph = dcc.Graph(figure=fig_pca)
+                    return graph
 
-                return graph
-
-            elif tab == "optimal-k":
-
-                graph = dcc.Graph(figure=elbow_fig_pca)
-
-                return graph
+                elif tab == "optimal-k":
+                    graph = dcc.Graph(figure=elbow_fig_pca)
+                    return graph
 
 
-            elif tab == "cluster-dist":
+                elif tab == "cluster-dist":
+                    graph = dcc.Graph(figure=clust_fig_pca)
+                    return graph
 
-                graph = dcc.Graph(figure=clust_fig_pca)
+            else:
 
-                return graph
+                elbow_fig, sil, fig, clust_fig = build_model(df, optimal_k=k, pca=False)
 
-        else:
+                if tab == "cluster":
+                    graph = dcc.Graph(figure=fig)
 
-            elbow_fig, sil, fig, clust_fig = build_model(df, optimal_k=k, pca=False)
+                    return graph
 
-            if tab == "cluster":
-                graph = dcc.Graph(figure=fig)
+                elif tab == "optimal-k":
 
-                return graph
+                    graph = dcc.Graph(figure=elbow_fig)
 
-            elif tab == "optimal-k":
-
-                graph = dcc.Graph(figure=elbow_fig)
-
-                return graph
+                    return graph
 
 
-            elif tab == "cluster-dist":
+                elif tab == "cluster-dist":
 
-                graph = dcc.Graph(figure=clust_fig)
+                    graph = dcc.Graph(figure=clust_fig)
 
-                return graph
-
-
-    elif dataset == 'df_cc':
-
-        if pca:
-
-            elbow_fig_pca, sil_pca, fig_pca, clust_fig_pca = build_credit_model(df_cc, optimal_k=k, pca=True)
-
-            if tab == "cluster":
-                graph = dcc.Graph(figure=fig_pca)
-
-                return graph
-
-            elif tab == "optimal-k":
-
-                graph = dcc.Graph(figure=elbow_fig_pca)
-
-                return graph
+                    return graph
 
 
-            elif tab == "cluster-dist":
+        elif dataset == 'df_cc':
 
-                graph = dcc.Graph(figure=clust_fig_pca)
+            if pca:
 
-                return graph
+                elbow_fig_pca, sil_pca, fig_pca, clust_fig_pca = build_credit_model(df_cc, optimal_k=k, pca=True)
 
-        else:
+                if tab == "cluster":
+                    graph = dcc.Graph(figure=fig_pca)
 
-            elbow_fig, sil, fig, clust_fig = build_credit_model(df_cc, optimal_k=k, pca=False)
+                    return graph
 
-            if tab == "cluster":
-                graph = dcc.Graph(figure=fig)
+                elif tab == "optimal-k":
 
-                return graph
+                    graph = dcc.Graph(figure=elbow_fig_pca)
 
-            elif tab == "optimal-k":
-
-                graph = dcc.Graph(figure=elbow_fig)
-
-                return graph
+                    return graph
 
 
-            elif tab == "cluster-dist":
+                elif tab == "cluster-dist":
 
-                graph = dcc.Graph(figure=clust_fig)
+                    graph = dcc.Graph(figure=clust_fig_pca)
 
-                return graph
+                    return graph
+
+            else:
+
+                elbow_fig, sil, fig, clust_fig = build_credit_model(df_cc, optimal_k=k, pca=False)
+
+                if tab == "cluster":
+                    graph = dcc.Graph(figure=fig)
+
+                    return graph
+
+                elif tab == "optimal-k":
+
+                    graph = dcc.Graph(figure=elbow_fig)
+
+                    return graph
+
+
+                elif tab == "cluster-dist":
+
+                    graph = dcc.Graph(figure=clust_fig)
+
+                    return graph
+
+    else:
+        raise PreventUpdate

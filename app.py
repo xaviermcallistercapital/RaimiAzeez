@@ -2,6 +2,9 @@ import dash
 from dash import Dash, html
 from dash_bootstrap_templates import ThemeSwitchAIO, ThemeChangerAIO, template_from_url
 import dash_bootstrap_components as dbc
+import warnings
+warnings.filterwarnings('ignore')
+
 #import dash_auth
 
 #theme switch
@@ -45,8 +48,8 @@ header = dbc.Navbar(
 )
 
 app.layout = dbc.Container([header, dash.page_container],
-                           style={'textAlign':'center'}, fluid=False,
+                           style={'textAlign':'center'}, fluid=True,
                            className="border p-4")
 
 if __name__ == '__main__':
-	app.run_server(port = '2020')
+	app.run_server(port = '1010')

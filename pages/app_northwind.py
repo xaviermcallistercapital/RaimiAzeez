@@ -302,7 +302,7 @@ timeframe_dropdown = html.Div([
 ], style={'width': '60%'})
 
 def layout():
-    return html.Div([
+    return dbc.Container([
     dbc.Row(
         [
             dbc.Col(
@@ -419,7 +419,7 @@ def layout():
                 ], xs=8, sm=8, md=10, lg=10, xl=10, xxl=10)
         ]
     )
-])
+], fluid=True, class_name='g-0 vh-100')
 
 @callback(
     Output('store', 'data'),
