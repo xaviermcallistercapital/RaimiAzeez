@@ -13,7 +13,7 @@ picture_card = dbc.Card(
             #html.P("This card has an image at the top", className="card-text")
         #),
     ],
-    #style={"width": "21rem"}, 
+    #style={"width": "21rem"},
     className='border rounded-lg',
 )
 
@@ -23,7 +23,7 @@ def layout():
         dbc.Col([
             picture_card
         ], xs=1, sm=2, md=2, lg=3, xl=3, xxl=3, #style={'align': 'center'},
-            className='pt-5'), #width={"size": 3} #float-right 
+            className='pt-5'), #width={"size": 3} #float-right
 
         dbc.Col([
             html.H1('Raimi Azeez Babatunde', style={'textAlign': 'center'}, className='p4'),
