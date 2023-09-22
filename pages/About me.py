@@ -13,7 +13,8 @@ picture_card = dbc.Card(
             #html.P("This card has an image at the top", className="card-text")
         #),
     ],
-    style={"width": "21rem"}, className='border rounded-lg',
+    #style={"width": "21rem"}, 
+    className='border rounded-lg',
 )
 
 def layout():
