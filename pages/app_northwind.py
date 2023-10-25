@@ -302,7 +302,7 @@ timeframe_dropdown = html.Div([
 ], style={'width': '60%'})
 
 def layout():
-    return html.Div([
+    return dbc.Container([
     dbc.Row(
         [
             dbc.Col(
@@ -419,12 +419,13 @@ def layout():
                 ], xs=8, sm=8, md=10, lg=10, xl=10, xxl=10)
         ]
     )
-])
+], fluid=True, class_name='g-0 vh-100')
 
 @callback(
     Output('store', 'data'),
     Output('prev_store', 'data'),
-    Input('year-dropdown', 'value')
+    Input('year-dropdown', 'value'),
+    prevent_initial_call=True
 )
 def data_store(value):
     # hypothetical enormous dataset with millions of rows
@@ -452,7 +453,8 @@ def data_store(value):
     Output('total-shipping', 'children'),
     Output('shipping-days', 'children'),
     Input('store', 'data'),
-    Input('prev_store', 'data')
+    Input('prev_store', 'data'),
+    prevent_initial_call=True
 )
 def update_indicators(data, prev_data):
     data = pd.DataFrame(data)
@@ -530,6 +532,7 @@ def update_indicators(data, prev_data):
     Output('top-shippers', 'children'),
     Output('top-employee-table', 'children'),
     Input('store', 'data'),
+    prevent_initial_call=True
 )
 def update_graphs(data):
     data = pd.DataFrame(data)

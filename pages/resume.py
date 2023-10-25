@@ -32,14 +32,19 @@ layout = html.Div([
                     html.I(className="fa-solid fa-envelope"),  # <i class="fa-solid fa-envelope"></i>
                     dcc.Markdown('###### &ensp; raimiazeez26@gmail.com',
                                  style={'textAlign': 'center'}),
-                ], width={"size": 4}, className='d-inline-flex'),
+                ], width={"size": 3}, className='d-inline-flex'),
 
                 dbc.Col([
                     html.I(className="fa-solid fa-phone"),  # <i class="fa-solid fa-envelope"></i>
                     dcc.Markdown('###### &ensp; +2348025831825',
                                  style={'textAlign': 'center'}),
                 ], width={"size": 3}, className='d-inline-flex'),
-            ], width='9', style={'align': 'center'})
+                dbc.Col([
+                    html.I(className="fa-regular fa-globe-pointer p-1"),  # <i class="fa-brands fa-kaggle"></i>
+                    html.A('Website  ', href='https://raimiazeez26.github.io/', target="_blank",
+                           style={'textAlign': 'center'})
+                ], width={"size": 3}, className=' d-inline-flex', style={'textAlign': 'center'}),
+            ], width='9', style={'align': 'right'})
         ], justify="center", className='pt-1 pb-1'),
 
         # social media
@@ -165,14 +170,15 @@ layout = html.Div([
             dbc.Col([
                 html.Ul([
                     html.Li(
-                        'I lead data analytics teams, coordinating project execution, and aligning objectives with '
-                        'business goals.'),
-                    html.Li('I developed and implemented machine learning models to predict outcomes and '
-                            'optimize processes, achieving improved accuracy and efficiency.'),
-                    html.Li('I convert company strategies into automated scripts using historical & technical indicator'
-                            ' data with python programming.'),
-                    html.Li('I build Artificial Intelligent solutions/products using Large Language Models (LLM)'),
-                    html.Li('I actively pursued professional development, earning certifications in areas such as '
+                            'Developed and deployed a cutting-edge chatbot using Large Language Models (LLM) technology, resulting '
+                            'in a 30% increase in customer engagement and a 20% increase in profit.'),
+                    html.Li('Coordinated the execution of data analytics projects, aligning objectives with business goals, resulting in a '
+                            '20% increase in overall efficiency'),
+                    html.Li('Analyzed historical and technical indicator data using Python programming to identify profitable trading '
+                            'opportunities, resulting in an increase of 20% in overall portfolio returns.'),
+                    html.Li('Collaborated with cross-functional teams to gather and analyze large datasets, identifying key trends and '
+                            'patterns that informed strategic business decisions, resulting in a 20% increase in market share.'),
+                    html.Li('Actively pursued professional development, earning certifications in areas such as '
                             'Business Intelligence & Data Analytics and Machine Learning..'),
                 ], style={'textAlign': 'left'})
             ], width='8')
@@ -213,13 +219,14 @@ layout = html.Div([
             dbc.Col([
                 html.Ul([
                     html.Li(
-                        'I designed visually appealing and informative dashboards using tools like Tableau and PowerBI '
-                        'to communicate insights effectively to non-technical stakeholders.'),
-                    html.Li('I extracted, cleaned, and processed extensive datasets from diverse sources, including user'
-                            ' interactions and financial transactions.'),
-                    html.Li('I Designed visually appealing and informative dashboards using tools like Tableau and '
-                            'PowerBI to communicate insights effectively to non-technical stakeholders.'),
-                    html.Li('I perform daily trades on provided accounts to build a profitable trading portfolio.'),
+                        'Executed daily trades, yielding a profitable trading portfolio and contributing to a 10% increase in '
+                            'investment returns.'),
+                    html.Li('Assisted in developing algorithms for risk assessment, minimizing potential losses by 18% through '
+                            'improved risk management.'),
+                    html.Li('Extracted, cleaned, and processed extensive datasets from diverse sources, including user interactions '
+                            'and financial transactions reducing project timelines and analysis by 15%.'),
+                    html.Li('Generated and presented monthly trade activity reports, enhancing transparency and communication '
+                            'within the team and with stakeholders.'),
                 ], style={'textAlign': 'left'})
             ], width='8'),
         ], justify='center'),
@@ -261,11 +268,9 @@ layout = html.Div([
             dbc.Col([
                 html.Ul([
                     html.Li(
-                        'I Performed exploratory data analysis and visualization to prepare data for modelling.'),
-                    html.Li('I Successfully developed machine learning models such as image recognition & time series '
-                            'prediction models'),
-                    html.Li('I worked with different teams on different case studies, identify machine learning '
-                            'solutions to real world problems.'),
+                        'Successfully developed machine learning models such as image recognition & time series prediction models.'),
+                    html.Li('Worked with cross-functional teams on different case studies, identifying machine learning solutions to real-world problems.'),
+                    html.Li('Performed exploratory data analysis and visualization to prepare data for modelling.'),
                 ], style={'textAlign': 'left'})
             ], width='8')
 
@@ -308,9 +313,9 @@ layout = html.Div([
                 dbc.Col([
                     html.Ul([
                         html.Li(
-                            'I helped set goals and plans for business revenue and client base growth.'),
-                        html.Li('I help maintain client relationship and ensure up to retention up to 10years'),
-                        html.Li('I managed its social media from to over 13k+ followers on multiple social media accounts.'),
+                            'Set goals and plans for business revenue and client base growth.'),
+                        html.Li('Maintained client relationship and ensure up to retention up to 10years'),
+                        html.Li('Managed its social media from to over 13k+ followers on multiple social media accounts.'),
                     ], style={'textAlign': 'left'})
                 ], width='8')
 

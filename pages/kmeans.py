@@ -18,9 +18,8 @@ import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
-
 def process_customer():
-    data = pd.read_csv("customers.csv")
+    data = pd.read_csv("assets/customers.csv")
     del(data["CustomerID"])
     cons = data.iloc[:,1:]
 
@@ -42,7 +41,7 @@ def process_customer():
 
 def build_model(cons_data, optimal_k, pca = False):
     
-    data = pd.read_csv("customers.csv")
+    data = pd.read_csv("assets/customers.csv")
     
     if pca:
         pca = PCA(n_components = len(cons_data.columns))
@@ -120,7 +119,7 @@ def build_model(cons_data, optimal_k, pca = False):
         #Group data Cluster averages
         data_done = data.copy()
         data_done['label'] = cons_data['label']
-        data_avg = data_done.groupby(['label'], as_index=True).mean()
+        data_avg = data_done.groupby(['label'], as_index=True).mean(numeric_only=True)
         data_avg = data_avg.drop("CustomerID", axis = 1)
         melted = data_avg.reset_index().melt(id_vars ="label")
 
@@ -134,6 +133,7 @@ def build_model(cons_data, optimal_k, pca = False):
 
         for clust in range(1,10):
             kmeans = KMeans(n_clusters = clust, init = "k-means++")#n_jobs = -1, , init = "k-means++"
+            print(f'136 cons_data: {cons_data}')
             kmeans.fit(cons_data)
             sse.append(kmeans.inertia_)
 
@@ -178,7 +178,7 @@ def build_model(cons_data, optimal_k, pca = False):
         #Group data Cluster averages
         data_done = data.copy()
         data_done['label'] = cons_data['label']
-        data_avg = data_done.groupby(['label'], as_index=True).mean()
+        data_avg = data_done.groupby(['label'], as_index=True).mean(numeric_only=True)
         data_avg = data_avg.drop("CustomerID", axis = 1)
         melted = data_avg.reset_index().melt(id_vars ="label")
 
@@ -192,7 +192,7 @@ def build_model(cons_data, optimal_k, pca = False):
 #==========================================================================================
 
 def process_credit():
-    data = pd.read_csv("CC_GENERAL.csv")
+    data = pd.read_csv("assets/CC_GENERAL.csv")
     del(data["CUST_ID"])
 
     #Standardize Data
@@ -206,7 +206,7 @@ def process_credit():
 
 def build_credit_model(cons_data, optimal_k, pca = False):
     
-    org_data = pd.read_csv("CC_GENERAL.csv")
+    org_data = pd.read_csv("assets/CC_GENERAL.csv")
     org_data = org_data.dropna()
     
     if pca:
@@ -285,7 +285,7 @@ def build_credit_model(cons_data, optimal_k, pca = False):
         #Group data Cluster averages
         data_done = org_data.copy()
         data_done['label'] = cons_data['label']
-        data_avg = data_done.groupby(['label'], as_index=True).mean()
+        data_avg = data_done.groupby(['label'], as_index=True).mean(numeric_only=True)
         melted = data_avg.reset_index().melt(id_vars ="label")
 
         clust_fig = px.histogram(melted, x="label", y="value",
@@ -342,7 +342,7 @@ def build_credit_model(cons_data, optimal_k, pca = False):
         #Group data Cluster averages
         data_done = org_data.copy()
         data_done['label'] = cons_data['label']
-        data_avg = data_done.groupby(['label'], as_index=True).mean()
+        data_avg = data_done.groupby(['label'], as_index=True).mean(numeric_only=True)
         #data_avg = data_avg.drop("CUST_ID", axis = 1)
         melted = data_avg.reset_index().melt(id_vars ="label")
 

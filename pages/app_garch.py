@@ -65,7 +65,6 @@ def layout():
                                     * Volatility Equation: The volatility equation models the conditional variance of 
                                         the time series. It combines lagged conditional variances (from the ARCH model) 
                                          and lagged squared returns to capture the time-varying nature of volatility.
-                                    * Natural resistance to the virus?
                                     ''', style={'textAlign': 'left'}),
                     html.P('The GARCH(p, q) model is denoted by specifying the orders of the autoregressive and moving '
                            'average terms in the volatility equation. "p" represents the number of lagged conditional '
@@ -167,8 +166,7 @@ def layout():
                     ),
                 ], xs=8, sm=8, md=10, lg=10, xl=10, xxl=10,
                 className='p-3'
-            )
-        ]
+            )]
         )], fluid=True, class_name='g-0') #p-4
 
 @callback(

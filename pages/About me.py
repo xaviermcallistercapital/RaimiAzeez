@@ -13,20 +13,22 @@ picture_card = dbc.Card(
             #html.P("This card has an image at the top", className="card-text")
         #),
     ],
-    style={"width": "18rem"}, className='border rounded-lg',
+    #style={"width": "21rem"},
+    className='border rounded-lg',
 )
 
 def layout():
     return dbc.Row([
-
         # put image here
         dbc.Col([
             picture_card
-        ], width={"size": 3}, className='pt-5'),
+        ], xs=1, sm=2, md=2, lg=3, xl=3, xxl=3, #style={'align': 'center'},
+            className='pt-5'), #width={"size": 3} #float-right
 
         dbc.Col([
             html.H1('Raimi Azeez Babatunde', style={'textAlign': 'center'}, className='p4'),
             html.Hr(),
+            #picture_card,
             html.P("Hi, I'm glad you found me.\n \n"
                  "Welcome to my world of data-driven wonders! I'm Azeez, your go-to wizard for turning raw data "
                  "into game-changing insights. With a passion for Python, data analysis, visualization, "
@@ -61,5 +63,6 @@ def layout():
                 * Business Strategy Analyst
                 * Data Operations Manager
             ''', style={'textAlign': 'left'})
-        ], width={'size':6}, className='flex-wrap')
+        ], xs=6, sm=6, md=8, lg=8, xl=8, xxl=8, className='align-content-around flex-wrap') #width={'size':6}
+
 ], justify='center', className='p-3')
